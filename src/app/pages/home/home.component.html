@@ -1,1 +1,32 @@
 <h2>hej</h2>
+
+
+@if(error()) {
+    <div>
+        <p>{{error()}}</p>
+    </div>
+}
+<table>
+      <thead>
+<tr>
+    <th>Kurskod</th>
+    <th>Namn</th>
+    <th>Progression</th>
+    <th>Länk</th>
+    
+</tr>
+    </thead>
+@for(course of courses(); track course.code)  {
+    
+   <tbody>
+        <td>{{course.code}}</td>
+        <td>{{course.coursename}}</td>
+        <td>{{course.progression}}</td>  
+        <td><a [href] = "course.syllabus" target="_blank">Visa kurs</a></td>  
+    </tbody>
+
+    
+}
+
+</table>
+
