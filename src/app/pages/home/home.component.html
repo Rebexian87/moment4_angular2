@@ -1,11 +1,15 @@
 <h2>hej</h2>
 
+<div>
+    <label for="filter">Filter</label>
+    <input type="text" id="filter" [(ngModel)]="filterValue" (input)="applyFilter()">
+</div>
 
-@if(error()) {
-    <div>
+<!-- @if(error()) { -->
+    <!-- <div>
         <p>{{error()}}</p>
-    </div>
-}
+    </div> -->
+<!-- } -->
 <table>
       <thead>
 <tr>
@@ -16,9 +20,9 @@
     
 </tr>
     </thead>
-@for(course of courses(); track course.code)  {
+
     
-   <tbody>
+   <tbody *ngFor="let course of filteredCourses">
         <td>{{course.code}}</td>
         <td>{{course.coursename}}</td>
         <td>{{course.progression}}</td>  
@@ -26,7 +30,7 @@
     </tbody>
 
     
-}
+
 
 </table>
 

@@ -1,35 +1,45 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component} from '@angular/core';
 import { courses } from '../../models/courses';
 import { CoursesService } from '../../services/courses.service';
-// import { CoursesService } from '../../services/courses.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  courses = signal<courses[]>([]);
-  error = signal<string | null>(null);
 
-  CoursesService = inject(CoursesService);
+
+
+  courses: courses[] = [];
+
+  filteredCourses: courses [] = [];
+
+  filterValue: string='';
+
+
+
+  
+
+  constructor(private CoursesService: CoursesService) {}
 
   ngOnInit(){
-    this.loadCourses()
+      this.CoursesService.loadCourses().subscribe((courses)=> {this.courses=courses; this.filteredCourses=courses; })
+
+
+   
   }
 
-  async loadCourses () {
-    try {
-      const response = await this.CoursesService.loadCourses();
-      this.courses.set(response)
-      console.table(this.courses())
-    } catch(error) {
-      console.log(error);
-      this.error.set("Data kan ej laddas, försök igen senare");
-      
-    }
 
+
+  applyFilter(): void {
+   this.filteredCourses=this.courses.filter((course) => course.code.toLowerCase().includes(this.filterValue.toLowerCase()) || course.coursename.toLowerCase().includes(this.filterValue.toLowerCase()))
+      
   }
 
 }

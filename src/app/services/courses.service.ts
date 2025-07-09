@@ -1,26 +1,28 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { courses } from '../models/courses';
-import { firstValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  private url: string = "https://webbutveckling.miun.se/files/ramschema.json";
+   url: string = "https://webbutveckling.miun.se/files/ramschema.json";
 
-  http = inject(HttpClient);
+  constructor(private http: HttpClient){ }
+
+  // http = inject(HttpClient);
 
   // Läs in kurser
 
-  async loadCourses(): Promise<courses[]> {
+  loadCourses(): Observable<courses[]> {
 
-    const courses = this.http.get<courses[]>(this.url);
-    return await firstValueFrom(courses); 
+    return this.http.get<courses[]>(this.url);
+   
 
   }
 
   
    
-  constructor() { }
+
 }
