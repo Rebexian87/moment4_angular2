@@ -22,6 +22,8 @@ export class HomeComponent {
 
   filterValue: string='';
 
+  sortedCourses: courses [] = [];
+
 
 
   
@@ -40,6 +42,21 @@ export class HomeComponent {
   applyFilter(): void {
    this.filteredCourses=this.courses.filter((course) => course.code.toLowerCase().includes(this.filterValue.toLowerCase()) || course.coursename.toLowerCase().includes(this.filterValue.toLowerCase()))
       
+  }
+
+  sort1(): void{
+      this.sortedCourses=this.courses.sort((a, b) => a.code > b.code ? 1:-1)
+
+  }
+
+  sort2(): void{
+      this.sortedCourses=this.courses.sort((a, b) => a.coursename > b.coursename ? 1:-1)
+
+  }
+
+   sort3(): void{
+      this.sortedCourses=this.courses.sort((a, b) => a.progression > b.progression ? 1:-1)
+
   }
 
 }

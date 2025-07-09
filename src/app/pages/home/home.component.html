@@ -5,7 +5,10 @@
     <input type="text" id="filter" [(ngModel)]="filterValue" (input)="applyFilter()">
 </div>
 
-<!-- @if(error()) { -->
+@if(filteredCourses.length === 0) {
+     <p>Inga kurser matchar sökningen</p>
+}
+
     <!-- <div>
         <p>{{error()}}</p>
     </div> -->
@@ -13,9 +16,9 @@
 <table>
       <thead>
 <tr>
-    <th>Kurskod</th>
-    <th>Namn</th>
-    <th>Progression</th>
+    <th  (click)="sort1()">Kurskod</th>
+    <th  (click)="sort2()">Namn</th>
+    <th  (click)="sort3()">Progression</th>
     <th>Länk</th>
     
 </tr>
