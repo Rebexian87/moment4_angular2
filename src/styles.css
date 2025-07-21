@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0; /*Sätter marginalerna till 0*/
+}
+
+body  {font-family: Tahoma, Verdana, sans-serif; 
+margin: auto;
+max-width: 1200px;
+} /*teckensnitt, som försöker använda Tahoma först*/
+
+h1 { /*Allmänna regler för h1*/
+    font-size: 1.5em;
+   margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+   
+  
+}
