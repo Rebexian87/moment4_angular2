@@ -1,4 +1,4 @@
-table { /*Allmänna regler för footer*/
+table { /*Allmänna regler för table*/
   
     margin-top: 5%;
     font-size: 1.2em;
@@ -20,7 +20,7 @@ td {
 }
 
 
-#filter {
+#filter {  /*storlek på där man skriver in text som sedan filtreras*/
     margin: auto;
     
 
@@ -28,7 +28,7 @@ td {
     height: 30px;
 }
 
-#filterLabel{
+#filterLabel{ /*css för label för sökbar*/
     font-size: 1.2em;
     margin-right: 2%;
 }

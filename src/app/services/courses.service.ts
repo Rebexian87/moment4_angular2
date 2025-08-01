@@ -11,9 +11,8 @@ export class CoursesService {
 
   constructor(private http: HttpClient){ }
 
-  // http = inject(HttpClient);
 
-  // Läs in kurser
+  // Service som läser in kurser från API
 
   loadCourses(): Observable<courses[]> {
 
