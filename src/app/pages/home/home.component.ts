@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent {
 
 
-
+//Mina variabler
   courses: courses[] = [];
 
   filteredCourses: courses [] = [];
@@ -27,7 +27,7 @@ export class HomeComponent {
 
 
   
-
+//Hämtar från CourseService
   constructor(private CoursesService: CoursesService) {}
 
   ngOnInit(){

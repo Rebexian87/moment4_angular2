@@ -12,7 +12,7 @@ export class CoursesService {
   constructor(private http: HttpClient){ }
 
 
-  // Service som läser in kurser från API
+  // Service som läser in kurser från API med hjälp av HTTPClient
 
   loadCourses(): Observable<courses[]> {
 
